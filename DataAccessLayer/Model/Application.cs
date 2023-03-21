@@ -22,7 +22,7 @@ namespace DataAccessLayer.Model
         public int PersonalIncomeId { get; set; }
         [ForeignKey(nameof(LoanRequirementId))]
         [Required]
-        public int LoanRequirementId { get; set; }
+        public Guid LoanRequirementId { get; set; }
 
     }
 }

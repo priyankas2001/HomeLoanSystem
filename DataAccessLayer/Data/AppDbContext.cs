@@ -46,7 +46,7 @@ namespace DataAccessLayer.Data
             builder.Entity<IdentityUserRole<string>>().HasData(
             new IdentityUserRole<string>
             {
-                RoleId = "a06d9c1c-154a-441e-a4f4-e49f03e4d2a8",
+                RoleId = "cc449f6c-eae7-40a4-a032-371126370ff7",
                 UserId = "8e445865-a24d-4543-a6c6-9443d048cdb9"
             });
         }

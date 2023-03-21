@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230319084752__initial")]
-    partial class _initial
+    [Migration("20230321181751__addedRelation")]
+    partial class _addedRelation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,8 +27,8 @@ namespace DataAccessLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("LoanRequirementId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("LoanRequirementId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("PersonalIncomeId")
                         .HasColumnType("int");
@@ -53,7 +53,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<double>("LoanAmount")
                         .HasColumnType("float");
 
-                    b.Property<int>("LoanDuration")
+                    b.Property<int>("LoanDurationInMonths")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("LoanStartDate")
@@ -231,14 +231,14 @@ namespace DataAccessLayer.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ca947c7c-a533-4467-9395-542a97e51721",
+                            ConcurrencyStamp = "fb28e232-9c16-4e33-8228-09bb3a4af89d",
                             Email = "Advisor@homeloan.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "ADVISOR",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGFmWtskcCVTTWUZI/dF4GpbdKeXfa0VBgv5TVlYu2n0c5J08DtOSWaWd99EdvAY5w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEKoLIbHH2YFKnpGCMoIYTQw2/I4kX27c6Xv5NvkWJJOGTPfqh4M0sfbwve7jXVlOw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "439dce53-e421-4a55-8f11-53f654444df6",
+                            SecurityStamp = "d8b737c7-fe66-49b8-8f11-b64b51e882f5",
                             TwoFactorEnabled = false,
                             UserName = "Advisor"
                         });
@@ -303,6 +303,13 @@ namespace DataAccessLayer.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "8e445865-a24d-4543-a6c6-9443d048cdb9",
+                            RoleId = "cc449f6c-eae7-40a4-a032-371126370ff7"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>

@@ -25,8 +25,8 @@ namespace DataAccessLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("LoanRequirementId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("LoanRequirementId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("PersonalIncomeId")
                         .HasColumnType("int");
@@ -51,7 +51,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<double>("LoanAmount")
                         .HasColumnType("float");
 
-                    b.Property<int>("LoanDuration")
+                    b.Property<int>("LoanDurationInMonths")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("LoanStartDate")
@@ -229,14 +229,14 @@ namespace DataAccessLayer.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fde7a6d6-067c-4c71-b6cf-4a71afd861d4",
+                            ConcurrencyStamp = "fb28e232-9c16-4e33-8228-09bb3a4af89d",
                             Email = "Advisor@homeloan.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "ADVISOR",
-                            PasswordHash = "AQAAAAEAACcQAAAAEP8vhtwt/PhQIVgodIudlwKjqK8eJVIDT9WA3lbfF53k5wXUEUAiEGRWYwlQBYdzig==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEKoLIbHH2YFKnpGCMoIYTQw2/I4kX27c6Xv5NvkWJJOGTPfqh4M0sfbwve7jXVlOw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ea671649-854f-4e5e-a9bf-f9f8e27eb371",
+                            SecurityStamp = "d8b737c7-fe66-49b8-8f11-b64b51e882f5",
                             TwoFactorEnabled = false,
                             UserName = "Advisor"
                         });
@@ -306,7 +306,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             UserId = "8e445865-a24d-4543-a6c6-9443d048cdb9",
-                            RoleId = "a06d9c1c-154a-441e-a4f4-e49f03e4d2a8"
+                            RoleId = "cc449f6c-eae7-40a4-a032-371126370ff7"
                         });
                 });
 

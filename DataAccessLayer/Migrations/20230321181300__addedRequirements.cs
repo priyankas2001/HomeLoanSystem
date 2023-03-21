@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataAccessLayer.Migrations
 {
-    public partial class _initial : Migration
+    public partial class _addedRequirements : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,7 +15,7 @@ namespace DataAccessLayer.Migrations
                     UserId = table.Column<int>(type: "int", nullable: false),
                     PropertyId = table.Column<int>(type: "int", nullable: false),
                     PersonalIncomeId = table.Column<int>(type: "int", nullable: false),
-                    LoanRequirementId = table.Column<int>(type: "int", nullable: false)
+                    LoanRequirementId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -75,7 +75,7 @@ namespace DataAccessLayer.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     LoanAmount = table.Column<double>(type: "float", nullable: false),
-                    LoanDuration = table.Column<int>(type: "int", nullable: false),
+                    LoanDurationInMonths = table.Column<int>(type: "int", nullable: false),
                     LoanStartDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -220,7 +220,7 @@ namespace DataAccessLayer.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, "ca947c7c-a533-4467-9395-542a97e51721", "IdentityUser", "Advisor@homeloan.com", false, false, null, null, "ADVISOR", "AQAAAAEAACcQAAAAEGFmWtskcCVTTWUZI/dF4GpbdKeXfa0VBgv5TVlYu2n0c5J08DtOSWaWd99EdvAY5w==", null, false, "439dce53-e421-4a55-8f11-53f654444df6", false, "Advisor" });
+                values: new object[] { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, "1ac01bf7-6a6f-4f02-b557-4a67cf7f92bb", "IdentityUser", "Advisor@homeloan.com", false, false, null, null, "ADVISOR", "AQAAAAEAACcQAAAAEL/PDw+V91Cyfn9RgOWErNEAkzu9zKELm5IXeJ7j8ZW47KR+OUwifQNI5A8AoKnmEQ==", null, false, "7458233d-5eee-4179-b346-41ec10c855ef", false, "Advisor" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
